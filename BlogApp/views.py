@@ -18,7 +18,7 @@ def index(request):
     msg=None
     paginator = None
     try:
-        template = get_template('Blogapp/index.html')
+        template = get_template('BlogApp/index.html')
     except TemplateDoesNotExist:
         return HttpResponse("Template not found.")
     if keyword:
@@ -48,7 +48,7 @@ def index(request):
 
     categories = Category.objects.all()
     context = {"blogs":blogs, "msg":msg, "paginator": paginator, "cats": categories}
-    return render(request, "Blogapp/index.html", context)
+    return render(request, "BlogApp/index.html", context)
 
 
 def detail(request, slug):
@@ -66,7 +66,7 @@ def detail(request, slug):
                 comment.save()
                 return redirect("detail", slug=blog.slug)
     context = {'blog': blog, "form": form, "comments": comments, "r_blogs": related_blogs}
-    return render(request, "Blogapp/detail.html", context)
+    return render(request, "BlogApp/detail.html", context)
 
 
 @login_required(login_url="signin")
@@ -101,7 +101,7 @@ def update_article(request, slug):
         messages.success(request, "Article updated successfully")
         return redirect("profile")
     context={"update":update, "form":form}
-    return render(request, "Blogapp/create.html", context)
+    return render(request, "BlogApp/create.html", context)
 
 
 @login_required(login_url="signin")
