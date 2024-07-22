@@ -14,6 +14,10 @@ def index(request):
     keyword = request.GET.get("search")
     msg=None
     paginator = None
+    try:
+        template = get_template('blogapp/index.html')
+    except TemplateDoesNotExist:
+        return HttpResponse("Template not found.")
     if keyword:
         blogs = Blog.objects.filter(Q(title__icontains=keyword) | Q(body__icontains=keyword) | 
                                     Q(category__title__icontains=keyword))
@@ -79,7 +83,7 @@ def create_article(request):
                 return redirect('profile')
 
     context={'form':form}
-    return render(request, "BlogApp\create.html", context)
+    return render(request, "BlogApp/create.html", context)
 
 @login_required(login_url="signin")
 def update_article(request, slug):
