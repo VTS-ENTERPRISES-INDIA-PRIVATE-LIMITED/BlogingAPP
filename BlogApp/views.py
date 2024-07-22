@@ -8,6 +8,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.template.loader import get_template
 from django.template import TemplateDoesNotExist
+from django.http import HttpResponse
 
 
 
@@ -17,7 +18,7 @@ def index(request):
     msg=None
     paginator = None
     try:
-        template = get_template('blogapp/index.html')
+        template = get_template('Blogapp/index.html')
     except TemplateDoesNotExist:
         return HttpResponse("Template not found.")
     if keyword:
