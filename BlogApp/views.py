@@ -45,7 +45,7 @@ def index(request):
         
     categories = Category.objects.all()
     context = {"blogs":blogs, "msg":msg, "paginator": paginator, "cats": categories}
-    return render(request, "blogapp/index.html", context)
+    return render(request, "Blogapp/index.html", context)
 
 
 def detail(request, slug):
@@ -63,7 +63,7 @@ def detail(request, slug):
                 comment.save()
                 return redirect("detail", slug=blog.slug)
     context = {'blog': blog, "form": form, "comments": comments, "r_blogs": related_blogs}
-    return render(request, "blogapp/detail.html", context)
+    return render(request, "Blogapp/detail.html", context)
 
 
 @login_required(login_url="signin")
@@ -98,7 +98,7 @@ def update_article(request, slug):
         messages.success(request, "Article updated successfully")
         return redirect("profile")
     context={"update":update, "form":form}
-    return render(request, "blogapp/create.html", context)
+    return render(request, "Blogapp/create.html", context)
 
 
 @login_required(login_url="signin")
