@@ -45,7 +45,7 @@ def index(request):
         
     categories = Category.objects.all()
     context = {"blogs":blogs, "msg":msg, "paginator": paginator, "cats": categories}
-    return render(request, "blogapp/index.html", context)
+    return render(request, "Blogapp/index.html", context)
 
 
 def detail(request, slug):
