@@ -39,10 +39,6 @@ def index(request):
         except EmptyPage:
             blogs = paginator.page(paginator.num_pages)
 
-    
-    
-    
-        
     categories = Category.objects.all()
     context = {"blogs":blogs, "msg":msg, "paginator": paginator, "cats": categories}
     return render(request, "Blogapp/index.html", context)
