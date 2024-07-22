@@ -6,6 +6,8 @@ from django.utils.text import slugify
 from django.contrib import messages
 from django.db.models import Q
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.template.loader import get_template
+from django.template import TemplateDoesNotExist
 
 
 
