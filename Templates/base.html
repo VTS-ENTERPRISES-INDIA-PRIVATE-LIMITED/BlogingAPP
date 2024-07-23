@@ -51,7 +51,7 @@
 color: rgb(206, 214, 222);}
 
 .bg {
-  background-image: url('/static/css/assests/background_image.jpg');
+  background-color: antiquewhite;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -75,7 +75,7 @@ color: rgb(206, 214, 222);}
   .navlog{
     margin-top: 1rem;
   }
-
+  
     
     .navbar1 {
         display: flex;
@@ -86,19 +86,20 @@ color: rgb(206, 214, 222);}
 }
 
 
-
-            
+.border{
+  border: 1pc;
+}
 
         </style>
     </head>
     <body>
         <!-- Responsive navbar-->
-        <nav class="navbar mynav navbar-expand-lg navbar1" style="background-color:rgb(232, 239, 240);">
+        <nav class="navbar mynav navbar-expand-lg navbar1" style="background-color:rgb(39, 43, 91);">
             <div class="container">
               
-              <a class="navbar-brand me-8 p1" href="{% url 'index' %}" style="color: rgb(0,0,0);">
-                <img src="/static/css/assests/vts_logo.png" alt="Logo" width="38.91" height="22" class="d-inline-block align-text-top">
-                <span class="highlight">VTS Enterprise</span></a>
+              <a class="navbar-brand me-8 p1" href="{% url 'index' %}" style="color: rgb(255, 255, 255);">
+                <img src="/static/css/assests/vts_logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-center">
+                <span class="highlight">VTS</span></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -112,12 +113,12 @@ color: rgb(206, 214, 222);}
                   {% if request.user.is_authenticated %}
 
                   <li class="nav-item active dropdown" >
-                    <a class="nav-link dropdown-toggle" href="#" role="button" style="color: rgb(0,0,0)" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" style="color: rgb(255, 255, 255)" data-bs-toggle="dropdown" aria-expanded="false">
                       Hi, {{request.user.username}}
                     </a>
-                    <ul class="dropdown-menu" style="color: rgb(0, 0, 0);">
-                      <li><a class="dropdown-item" href="{% url 'profile' %}" style="color:rgb(0,0,0);" >Profile</a></li>
-                      <li><a class="dropdown-item" href="{% url 'create-article' %}" style="color:rgb(0,0,0);">Create Articles</a></li>
+                    <ul class="dropdown-menu" style="color: rgb(255, 255, 255);">
+                      <li><a class="dropdown-item" href="{% url 'profile' %}" style="color:rgb(0, 0, 0);" >Profile</a></li>
+                      <li><a class="dropdown-item" href="{% url 'create-article' %}" style="color:rgb(1, 1, 1);">Create Articles</a></li>
                       <li><a class="dropdown-item" href="{% url 'signout' %}" style="color:rgb(0, 0, 0);">Logout</a></li>
                     </ul>
                   </li>
@@ -127,11 +128,18 @@ color: rgb(206, 214, 222);}
 
 
                   {% else %}
-
+                  
+                  <li class="nav-item me-3 navlog">
+                    <a href="https://blog-website-g849.onrender.com/admin">
+                    <button type="button" class="btn btn-outline-light">
+                       Admin
+                    </button>
+                </a>
+                  </li>
 
                   <li class="nav-item me-3 navlog">
                     <a href="{% url 'signup' %}">
-                    <button type="button" class="btn btn-outline-dark">
+                    <button type="button" class="btn btn-outline-light">
                        SignUp
                     </button>
                 </a>
@@ -140,7 +148,7 @@ color: rgb(206, 214, 222);}
 
                   <li class="nav-item me-3 navlog">
                     <a href="{% url 'signin' %}">
-                    <button type="button" class="btn btn-outline-dark">
+                    <button type="button" class="btn btn-outline-light">
                        Login
                     </button>
                 </a>
@@ -183,21 +191,21 @@ color: rgb(206, 214, 222);}
 
 
 
-        <footer class="py-5" style="background-color: rgb(232, 239, 240);">
+        <footer class="py-5" style="background-color: rgb(39, 43, 91);">
             <div class="container">
               <div class="row">
 
 
                  <!-- Social Media Links -->
                  <div class="col-lg-3 col-md-6">
-                  <h4 class="text-black">VTS Enterprises Office</h4>
-                  <h5 class="text-black">India</h5>
+                  <h4 class="text-white">VTS Enterprises Office</h4>
+                  <h5 class="text-white">India</h5>
                   <br>
-                  <ul class="list-unstyled">
+                  <ul class="list-unstyled text-white">
                     <p>First Floor, SRP Stratford, Rajiv Gandhi Salai, PTK nagar, OMR Road, Thiruvanmiyur, Chennai, Tamil Nadu 600041</p>
                     <!-- Add more social media links as needed -->
                   </ul>
-                  <address>
+                  <address style="color: white;">
                     Email:  <a href="mailto:talent@vtsenterprisesindia.com">talent@vtsenterprisesindia.com</a>.<br>
                   
                     </address>
@@ -207,30 +215,30 @@ color: rgb(206, 214, 222);}
                
                 <!-- Navigation Links -->
                 <div class="col-lg-3 col-md-6">
-                  <h5 class="text-black">Quick Links</h5>
+                  <h5 class="text-white">Quick Links</h5>
                   <ul class="list-unstyled">
-                    <li><a href="https://www.vtsenterprisesindia.com/" class="text-black">Home</a></li>
-                    <li><a href="https://www.linkedin.com/company/vts-enterprises-india-private-limited/mycompany/" target="_blank" class="text-black">LinkedIn</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/about-us/" class="text-black">About</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/contact-us/" class="text-black">Contact Us</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/idea/" class="text-black">Idea</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/innovation/" class="text-black">Innovation</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/scale/" class="text-black">Scale</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/privacy-policy/" class="text-black">Privacy Policy</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/terms-conditions/" class="text-black">Term of Use</a></li>
+                    <li><a href="https://www.vtsenterprisesindia.com/" class="text-white">Home</a></li>
+                    <li><a href="https://www.linkedin.com/company/vts-enterprises-india-private-limited/mycompany/" target="_blank" class="text-white">LinkedIn</a></li>
+                    <li><a href="https://www.vtsenterprisesindia.com/about-us/" class="text-white">About</a></li>
+                    <li><a href="https://www.vtsenterprisesindia.com/contact-us/" class="text-white">Contact Us</a></li>
+                    <li><a href="https://www.vtsenterprisesindia.com/idea/" class="text-white">Idea</a></li>
+                    <li><a href="https://www.vtsenterprisesindia.com/innovation/" class="text-white">Innovation</a></li>
+                    <li><a href="https://www.vtsenterprisesindia.com/scale/" class="text-white">Scale</a></li>
+                    <li><a href="https://www.vtsenterprisesindia.com/privacy-policy/" class="text-white">Privacy Policy</a></li>
+                    <li><a href="https://www.vtsenterprisesindia.com/terms-conditions/" class="text-white">Term of Use</a></li>
                   </ul>
                 </div>
         
                 <div class="col-lg-3 col-md-6">
-                  <h5 class="text-black">Services</h5>
+                  <h5 class="text-white">Services</h5>
                   <ul class="list-unstyled">
-                    <li><a href="https://www.vtsenterprisesindia.com/data-analytics-services/" target="_blank" class="text-black">Data Analytics</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/data-engineering-services/" target="_blank" class="text-black">Data Engineering</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/blockchain-development-services/" target="_blank" class="text-black">Blockchain Development</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/machine-learning-services/" target="_blank" class="text-black">Machine Learning</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/natural-language-processing-services/" target="_blank" class="text-black">Natural Launguage Proccessing</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/mobile-app-development-services/" target="_blank" class="text-black">Mobile App Development</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/offshore-development-center/" target="_blank" class="text-black">Offshore Development</a></li>
+                    <li><a href="https://www.vtsenterprisesindia.com/data-analytics-services/" target="_blank" class="text-white">Data Analytics</a></li>
+                    <li><a href="https://www.vtsenterprisesindia.com/data-engineering-services/" target="_blank" class="text-white">Data Engineering</a></li>
+                    <li><a href="https://www.vtsenterprisesindia.com/blockchain-development-services/" target="_blank" class="text-white">Blockchain Development</a></li>
+                    <li><a href="https://www.vtsenterprisesindia.com/machine-learning-services/" target="_blank" class="text-white">Machine Learning</a></li>
+                    <li><a href="https://www.vtsenterprisesindia.com/natural-language-processing-services/" target="_blank" class="text-white">Natural Launguage Proccessing</a></li>
+                    <li><a href="https://www.vtsenterprisesindia.com/mobile-app-development-services/" target="_blank" class="text-white">Mobile App Development</a></li>
+                    <li><a href="https://www.vtsenterprisesindia.com/offshore-development-center/" target="_blank" class="text-white">Offshore Development</a></li>
                     
                   </ul>
                 </div>
@@ -243,8 +251,8 @@ color: rgb(206, 214, 222);}
         
                 <!-- Copyright Information -->
                 <div class="col-lg-3">
-                  <h5 class="text-black">© 2024 Copyright VTS Enterprises India</h5>
-                  <p class="text-black">All rights reserved.</p>
+                  <h5 class="text-white">© 2024 Copyright VTS Enterprises India</h5>
+                  <p class="text-white">All rights reserved.</p>
                 </div>
               </div>
             </div>
