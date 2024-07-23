@@ -9,7 +9,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>DevDrive - Tech</title>
-        <link rel="icon" type="image/x-icon" href="/static/css/assests/Blog_img.jpg">
+        <link rel="icon" type="image/x-icon" href="/static/css/assests/vts_logo.png">
 
         <script src="{% static 'article/js/scripts.js' %}"></script>
         <!-- Favicon-->
@@ -44,8 +44,35 @@
   margin: 4px 2px;
   cursor: pointer;
 }
+.p1 {
+  font-family: serif;
+}
+.outset {border-style: outset;
+color: rgb(206, 214, 222);}
 
-            
+.bg {
+  background-image: url('/static/css/assests/background_image.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.button {
+  background-color: rgb(232, 239, 240); 
+}  
+
+@media (max-width: 768px) {
+    .navbar1 {
+        flex-direction: column;
+    }
+    .navbar-links1 {
+        flex-direction: column;
+        width: 100%;
+    }
+    .btn1 {
+        width: 100%;
+        text-align: center;
+    }
+}
 
             
 
@@ -53,12 +80,12 @@
     </head>
     <body>
         <!-- Responsive navbar-->
-        <nav class="navbar mynav navbar-expand-lg" style="background-color:rgb(245, 157, 73);">
+        <nav class="navbar mynav navbar-expand-lg" style="background-color:rgb(232, 239, 240);">
             <div class="container">
               
-              <a class="navbar-brand me-8" href="{% url 'index' %}" style="color: rgb(255, 255, 255);">
-                <img src="/static/css/assests/Blog_img.jpg" alt="Logo" width="40" height="30" class="d-inline-block align-text-top">
-                DevDrive</a>
+              <a class="navbar-brand me-8 p1" href="{% url 'index' %}" style="color: rgb(0,0,0);">
+                <img src="/static/css/assests/vts_logo.png" alt="Logo" width="38.91" height="22" class="d-inline-block align-text-top">
+                <span class="highlight">VTS Enterprise</span></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -66,17 +93,19 @@
                 <ul class="navbar-nav">
                  
 
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 21" aria-label="Render" width="84" height="21" class="render-logo-fill fill-black inline-block md:hidden"></svg>
+
               
                   {% if request.user.is_authenticated %}
 
                   <li class="nav-item active dropdown" >
-                    <a class="nav-link dropdown-toggle" href="#" role="button" style="color: rgb(255, 255, 255)" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" style="color: rgb(0,0,0)" data-bs-toggle="dropdown" aria-expanded="false">
                       Hi, {{request.user.username}}
                     </a>
-                    <ul class="dropdown-menu" style="color: rgb(255, 176, 79);">
-                      <li><a class="dropdown-item" href="{% url 'profile' %}" style="color:rgb(204, 128, 36);" >Profile</a></li>
-                      <li><a class="dropdown-item" href="{% url 'create-article' %}" style="color:rgb(204, 128, 36);">Create Articles</a></li>
-                      <li><a class="dropdown-item" href="{% url 'signout' %}" style="color:rgb(204, 128, 36);">Logout</a></li>
+                    <ul class="dropdown-menu" style="color: rgb(0, 0, 0);">
+                      <li><a class="dropdown-item" href="{% url 'profile' %}" style="color:rgb(0,0,0);" >Profile</a></li>
+                      <li><a class="dropdown-item" href="{% url 'create-article' %}" style="color:rgb(0,0,0);">Create Articles</a></li>
+                      <li><a class="dropdown-item" href="{% url 'signout' %}" style="color:rgb(0, 0, 0);">Logout</a></li>
                     </ul>
                   </li>
 
@@ -87,9 +116,9 @@
                   {% else %}
 
 
-                  <li class="nav-item me-3">
+                  <li class="nav-item me-3 navbar1 navbar-links1 btn1">
                     <a href="{% url 'signup' %}">
-                    <button type="button" class="btn btn-outline-light">
+                    <button type="button" class="btn btn-outline-dark">
                        SignUp
                     </button>
                 </a>
@@ -98,7 +127,7 @@
 
                   <li class="nav-item me-3">
                     <a href="{% url 'signin' %}">
-                    <button type="button" class="btn btn-outline-light">
+                    <button type="button" class="btn btn-outline-dark">
                        Login
                     </button>
                 </a>
@@ -141,35 +170,35 @@
 
 
 
-        <footer class="py-5" style="background-color: rgb(245, 157, 73);">
+        <footer class="py-5" style="background-color: rgb(232, 239, 240);">
             <div class="container">
               <div class="row">
                 <!-- Navigation Links -->
                 <div class="col-lg-3 col-md-6">
-                  <h5 class="text-white">Quick Links</h5>
+                  <h5 class="text-black">Quick Links</h5>
                   <ul class="list-unstyled">
-                    <li><a href="#" class="text-white">Home</a></li>
-                    <li><a href="#" class="text-white">About</a></li>
-                    <li><a href="#" class="text-white">Tech Journeys</a></li>
-                    <li><a href="#" class="text-white">Contact</a></li>
-                    <li><a href="#" class="text-white">Tech Journeys</a></li>
-                    <li><a href="#" class="text-white">Contact</a></li>
-                    <li><a href="#" class="text-white">Tech Journeys</a></li>
-                    <li><a href="#" class="text-white">Contact</a></li>
+                    <li><a href="#" class="text-black">Home</a></li>
+                    <li><a href="#" class="text-black">About</a></li>
+                    <li><a href="#" class="text-black">Tech Journeys</a></li>
+                    <li><a href="#" class="text-black">Contact</a></li>
+                    <li><a href="#" class="text-black">Tech Journeys</a></li>
+                    <li><a href="#" class="text-black">Contact</a></li>
+                    <li><a href="#" class="text-black">Tech Journeys</a></li>
+                    <li><a href="#" class="text-black">Contact</a></li>
                   </ul>
                 </div>
         
                 <!-- Social Media Links -->
                 <div class="col-lg-3 col-md-6">
-                  <h5 class="text-white">Connect with Us</h5>
+                  <h5 class="text-black">Connect with Us</h5>
                   <ul class="list-unstyled">
-                    <li><a href="#" target="_blank" class="text-white">Twitter</a></li>
-                    <li><a href="#" target="_blank" class="text-white">LinkedIn</a></li>
-                    <li><a href="#" target="_blank" class="text-white">GitHub</a></li>
-                    <li><a href="#" target="_blank" class="text-white">LinkedIn</a></li>
-                    <li><a href="#" target="_blank" class="text-white">GitHub</a></li>
-                    <li><a href="#" target="_blank" class="text-white">LinkedIn</a></li>
-                    <li><a href="#" target="_blank" class="text-white">GitHub</a></li>
+                    <li><a href="#" target="_blank" class="text-black">Twitter</a></li>
+                    <li><a href="#" target="_blank" class="text-black">LinkedIn</a></li>
+                    <li><a href="#" target="_blank" class="text-black">GitHub</a></li>
+                    <li><a href="#" target="_blank" class="text-black">LinkedIn</a></li>
+                    <li><a href="#" target="_blank" class="text-black">GitHub</a></li>
+                    <li><a href="#" target="_blank" class="text-black">LinkedIn</a></li>
+                    <li><a href="#" target="_blank" class="text-black">GitHub</a></li>
                     <!-- Add more social media links as needed -->
                   </ul>
                 </div>
@@ -178,13 +207,13 @@
   
                  <!-- Learning Resources -->
                  <div class="col-lg-3 col-md-6">
-                  <h5 class="text-white">Learning Resouces</h5>
+                  <h5 class="text-black">Learning Resouces</h5>
                   <ul class="list-unstyled">
-                    <li><a href="#" target="_blank" class="text-white">FreeCodeCamp</a></li>
-                    <li><a href="#" target="_blank" class="text-white">NetNinja</a></li>
-                    <li><a href="#" target="_blank" class="text-white">Web Dev Simplified</a></li>
-                    <li><a href="#" target="_blank" class="text-white">TestDriven.io</a></li>
-                    <li><a href="#" target="_blank" class="text-white">Geek for Geeks</a></li>
+                    <li><a href="#" target="_blank" class="text-black">FreeCodeCamp</a></li>
+                    <li><a href="#" target="_blank" class="text-black">NetNinja</a></li>
+                    <li><a href="#" target="_blank" class="text-black">Web Dev Simplified</a></li>
+                    <li><a href="#" target="_blank" class="text-black">TestDriven.io</a></li>
+                    <li><a href="#" target="_blank" class="text-black">Geek for Geeks</a></li>
                     <!-- Add more social media links as needed -->
                   </ul>
                 </div>
@@ -192,8 +221,8 @@
         
                 <!-- Copyright Information -->
                 <div class="col-lg-3">
-                  <h5 class="text-white">© DevDrive</h5>
-                  <p class="text-white">All rights reserved.</p>
+                  <h5 class="text-black">© DevDrive</h5>
+                  <p class="text-black">All rights reserved.</p>
                 </div>
               </div>
             </div>

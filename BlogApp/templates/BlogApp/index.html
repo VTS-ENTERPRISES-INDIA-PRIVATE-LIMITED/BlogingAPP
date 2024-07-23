@@ -3,18 +3,65 @@
 {% block content %}
 
  <!-- Page header with logo and tagline-->
- <header class="py-5 bg-light border-bottom mb-4">
+
+ <header class="py-5 bg-light border-bottom mb-4 bg">
     <div class="container">
         <div class="text-center my-5">
-            <h1 class="fw-bolder" style="color: rgb(245, 157, 73);">Welcome to DevDrive!</h1>
-            <p class="lead mb-0" style="color: rgb(204, 128, 36);">Are you a techie or are you aspiring to become one?
-                DevDrive is where you should be.  </p>
+            <h1 class="fw-bolder" style="color: rgb(0,0,0);">Welcome to VTS Blog!</h1>
+            <p class="lead mb-0" style="color: rgb(107, 111, 114);">Experience cutting-edge technologies and collaborate on exciting projects beyond your imagination.
+            </p>
         </div>
     </div>
 </header>
 <!-- Page content-->
+
 <div class="container">
     <div class="row">
+
+        <div class="col-lg-4">
+            <!-- Search widget-->
+            <div class="card mb-4">
+                <div class="card-header" style="background-color:rgb(232, 239, 240);"><span  class="highlight">Search</span></div>
+                <div class="card-body">
+                    <form action="">
+                        <div class="input-group">
+                            <input class="form-control" name="search" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                            <button class="btn" style="background-color: rgb(232, 239, 240);"  id="button-search">Go!</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+            <!-- Categories widget-->
+            <div class="card mb-4">
+                <div class="card-header" style="background-color:rgb(232, 239, 240);"><span  class="highlight">Categories</span></div>
+                <div class="card-body">
+                    <div class="row">
+
+                        
+                        {% for cat in cats  %}
+
+                        <div class="col-sm-4">
+                            <span class="badge " style="color: rgb(22, 28, 32);">{{cat.title}}</span>
+                        </div>
+                            
+                        {% endfor %}
+                            
+                        
+                       
+
+                       
+                    </div>
+                </div>
+            </div>
+            <!-- Side widget-->
+            <div class="card mb-4">
+                <div class="card-header" style="background-color:rgb(232, 239, 240);"><span  class="highlight">VTS Enterprise</span></div>
+                <div class="card-body">Experience cutting-edge technologies and collaborate on exciting projects beyond your imagination.
+                    
+                </div>
+            </div>
+        </div>
         <!-- Blog entries-->
         <div class="col-lg-8">
             <!-- Featured blog post-->
@@ -27,18 +74,18 @@
                 {% endif %}
 
                 
-
+            
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         {% for blog in blogs  %}
                       <div class="carousel-item active">
-                        <a href="{% url 'detail' blog.slug %}"><img src="{{blog.thumbnail.url}}" class="d-block w-100" alt="..." width="800" height="300"></a>
+                        <a href="{% url 'detail' blog.slug %}"><img src="{{blog.thumbnail.url}}" class="d-block w-100 outset" alt="..." width="800" height="300"></a>
                       </div>
                        {% endfor %}
                        
                        {% for blog in blogs  %}
                       <div class="carousel-item">
-                        <a href="{% url 'detail' blog.slug %}"><img src="{{blog.thumbnail.url}}" class="d-block w-100" alt="..." width="800" height="300"></a>
+                        <a href="{% url 'detail' blog.slug %}"><img src="{{blog.thumbnail.url}}" class="d-block w-100 outset" alt="..." width="800" height="300"></a>
                       </div>
                       {% endfor %}
                       
@@ -67,7 +114,7 @@
                 <div class="col-lg-6">
                     <!-- Blog post-->
                     <div class="card mb-4">
-                        <a href="{% url 'detail' blog.slug %}"><img class="card-img-top" src="{{blog.thumbnail.url}}" alt="..." width="700" height="300" /></a>
+                        <a href="{% url 'detail' blog.slug %}"><img class="card-img-top" src="{{blog.thumbnail.url}}" alt="..." width="500" height="300" /></a>
                         <div class="card-body">
                             <div class="small text-muted">{{blog.created}}</div>
                             <h2 class="card-title h4">{{blog.title}}</h2>
@@ -131,51 +178,7 @@
             </nav>
         </div>
         <!-- Side widgets-->
-        <div class="col-lg-4">
-            <!-- Search widget-->
-            <div class="card mb-4">
-                <div class="card-header"><span  class="highlight">Search</span></div>
-                <div class="card-body">
-                    <form action="">
-                        <div class="input-group">
-                            <input class="form-control" name="search" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                            <button class="btn btn-primary"  id="button-search">Go!</button>
-                        </div>
-                    </form>
-                    
-                </div>
-            </div>
-            <!-- Categories widget-->
-            <div class="card mb-4">
-                <div class="card-header"><span  class="highlight">Categories</span></div>
-                <div class="card-body">
-                    <div class="row">
-
-                        
-                        {% for cat in cats  %}
-
-                        <div class="col-sm-4">
-                            <span class="badge bg-primary">{{cat.title}}</span>
-                        </div>
-                            
-                        {% endfor %}
-                            
-                        
-                       
-
-                       
-                    </div>
-                </div>
-            </div>
-            <!-- Side widget-->
-            <div class="card mb-4">
-                <div class="card-header"><span  class="highlight">DevDrive</span></div>
-                <div class="card-body">
-                    Are you a techie or are you aspiring to become one?
-                DevDrive is where you should be.
-                </div>
-            </div>
-        </div>
+        
     </div>
 </div>
 
