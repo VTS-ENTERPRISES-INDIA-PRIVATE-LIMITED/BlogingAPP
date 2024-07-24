@@ -37,13 +37,19 @@
 
 
 <form action="" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <h4>Create your content</h4>
+    
+    
+    <div class="col-md-12">
+        <!-- Search widget-->
+        <div class="card mb-6">
+            <div class="card-header display-6 " style="background-color: rgb(39, 43, 91);color: white;font-size:xx-large;">Create Your Content</div>
+            <br>
+            {% csrf_token %}
     {% for field in form  %}
 
     
     {% if field.errors %}
-    <div class="mb-3">
+    <div class="mb-4">
         <label for="">{{field.label}}</label>
         {{field}}
     </div>
@@ -51,7 +57,7 @@
 
 
     {% else %}
-    <div class="mb-3">
+    <div class="mb-4">
         <label for="">{{field.label}}</label>
         {{field}}
     </div>
@@ -63,6 +69,8 @@
         
     {% endfor %}
     <button class="btn btn-primary" style="width:100%">Create article</button>
+        </div>
+    </div>
 </form>
 
 {% endblock content %}
