@@ -79,10 +79,15 @@ color: rgb(206, 214, 222);}
     
     .navbar1 {
         display: flex;
-        justify-content: flex-end;   
+        justify-content: flex-end; 
+        align-items: center;  
     }
     
     
+}
+.container{
+  align-items: center;
+  display: flex;
 }
 
 
@@ -123,6 +128,11 @@ color: rgb(206, 214, 222);}
 @media only screen and (min-width: 1000px){
 .bdy{height: 100vh;}
 }
+.search-form{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 
 </style>
     </head>
@@ -142,7 +152,12 @@ color: rgb(206, 214, 222);}
                  
 
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 21" aria-label="Render" width="84" height="21" class="render-logo-fill fill-black inline-block md:hidden"></svg>
-
+                  <form action="" class="search-form">
+                    <div class="input-group">
+                        <input class="form-control" name="search" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                        
+                    </div>
+                </form>
               
                   {% if request.user.is_authenticated %}
 
@@ -163,7 +178,7 @@ color: rgb(206, 214, 222);}
 
                   {% else %}
                   
-                  <li class="nav-item me-3 navlog">
+                  <li class="nav-item me-3">
                     <a href="https://blog-website-g849.onrender.com/admin">
                     <button type="button" class="btn btn-outline-light">
                        Admin

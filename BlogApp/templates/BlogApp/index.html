@@ -43,50 +43,7 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-lg-4">
-            <!-- Search widget-->
-            <div class="card mb-4">
-                <div class="card-header" style="background-color:rgb(39, 43, 91);color: white;"><span  class="highlight">Search</span></div>
-                <div class="card-body">
-                    <form action="">
-                        <div class="input-group">
-                            <input class="form-control" name="search" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                            <button class="btn" style="background-color: rgb(39, 43, 91);color: white;"  id="button-search">Go!</button>
-                        </div>
-                    </form>
-                    
-                </div>
-            </div>
-            <!-- Categories widget-->
-            <div class="card mb-4">
-                <div class="card-header" style="background-color:rgb(39, 43, 91);color: white;"><span  class="highlight">Categories</span></div>
-                <div class="card-body">
-                    <div class="row" style="font-style:normal;font-size:larger;">
-
-                        
-                        {% for cat in cats  %}
-
-                        <div class="col-sm-4">
-                            <span class="badge " style="color: rgb(22, 28, 32);">{{cat.title}}</span>
-                        </div>
-                            
-                        {% endfor %}
-                            
-                        
-                       
-
-                       
-                    </div>
-                </div>
-            </div>
-            <!-- Side widget-->
-            <div class="card mb-4">
-                <div class="card-header" style="background-color:rgb(39, 43, 91);color: white;"><span  class="highlight">VTS</span></div>
-                <div class="card-body">Experience cutting-edge technologies and collaborate on exciting projects beyond your imagination.
-                    
-                </div>
-            </div>
-        </div>
+        
         <!-- Blog entries-->
         <div class="col-lg-8">
             <!-- Featured blog post-->
@@ -171,7 +128,38 @@
             </nav>
         </div>
         <!-- Side widgets-->
-        
+        <div class="col-lg-4">
+           
+            <!-- Categories widget-->
+            <div class="card mb-4">
+                <div class="card-header" style="background-color:rgb(39, 43, 91);color: white;"><span  class="highlight">Categories</span></div>
+                <div class="card-body">
+                    <div class="row" style="font-style:normal;font-size:larger;">
+
+                        
+                        {% for cat in cats  %}
+
+                        <div class="col-sm-4">
+                            <span class="badge " style="color: rgb(22, 28, 32);">{{cat.title}}</span>
+                        </div>
+                            
+                        {% endfor %}
+                            
+                        
+                       
+
+                       
+                    </div>
+                </div>
+            </div>
+            <!-- Side widget-->
+            <div class="card mb-4">
+                <div class="card-header" style="background-color:rgb(39, 43, 91);color: white;"><span  class="highlight">VTS</span></div>
+                <div class="card-body">Experience cutting-edge technologies and collaborate on exciting projects beyond your imagination.
+                    
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
