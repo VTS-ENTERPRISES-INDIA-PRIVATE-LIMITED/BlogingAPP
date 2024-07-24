@@ -7,7 +7,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
     profile_pic = models.ImageField("p_img", blank=True, null = True)
     phone_no = models.CharField(max_length=10,  blank=True, null = True)
-    address = models.CharField(max_length=50,  blank=True, null = True)
+    address = models.CharField(max_length=100,  blank=True, null = True)
     role = models.CharField(max_length=50,  blank=True, null = True)
 
     bio = models.TextField( blank=True, null = True)

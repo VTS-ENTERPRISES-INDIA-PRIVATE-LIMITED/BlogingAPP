@@ -144,49 +144,51 @@
                 </div>
               </div>
 
-              <div class="container blog-container" style="border: 1px solid silver">
 
-                <h5>My Articles</h5>
-            
-                <div class="row">
+              <div class="col-md-12">
+                <!-- Search widget-->
+                <div class="card mb-4">
+                    <div class="card-header display-6 " style="background-color: rgb(39, 43, 91);color: white;">My Articles</div>
+                    <br>
+                    <div class="row">
 
                   
-                  {% for blog in blogs  %}
-
-                  <div class="col-md-6">
-                    
-                    <div class="card mb-4">
-                      <a href="#!"><img class="card-img-top" src="{{blog.thumbnail.url}}" alt="..." /></a>
-                      <div class="card-body">
-                          <div class="small text-muted">{{blog.created}}</div>
-                          <h2 class="card-title h4">{{blog.title}}</h2>
-                          <p class="card-text">{{blog.body | safe | truncatechars:"100"}}</p>
-                          <a class="btn btn-primary" href="{% url 'detail' slug=blog.slug %}">Read more →</a>
-       
-                         
-
-                          <span style="float: right" class="actions">
-                            <a href="{% url 'update-article' blog.slug %}"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="{% url 'delete-article' blog.slug %}"><i class="fa-solid fa-trash-can"></i></a>
-                          </span>
+                      {% for blog in blogs  %}
+    
+                      <div class="col-md-6">
                         
-
-                          
+                        <div class="card mb-4">
+                          <a href="#!"><img class="card-img-top" src="{{blog.thumbnail.url}}" alt="..." /></a>
+                          <div class="card-body">
+                              <div class="small text-muted">{{blog.created}}</div>
+                              <h2 class="card-title h4">{{blog.title}}</h2>
+                              <p class="card-text">{{blog.body | safe | truncatechars:"100"}}</p>
+                              <a class="btn btn-primary" href="{% url 'detail' slug=blog.slug %}">Read more →</a>
+           
+                             
+    
+                              <span style="float: right" class="actions">
+                                <a href="{% url 'update-article' blog.slug %}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="{% url 'delete-article' blog.slug %}"><i class="fa-solid fa-trash-can"></i></a>
+                              </span>
+                            
+    
+                              
+                          </div>
+                        </div>
+    
                       </div>
+                        
+                      {% endfor %}
+                        
+                      
+                        
                     </div>
-
-                  </div>
-                    
-                  {% endfor %}
-                    
-                  
-                    
                 </div>
+                
+                <!-- Side widget-->
+              
               </div>
-
-            
-
-
             </div>
           </div>
 
