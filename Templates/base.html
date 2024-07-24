@@ -171,6 +171,14 @@
               align-items: center;
               
             }
+            .navbar-toggler-icon {
+             /* Replace with your icon URL */
+            background-size: cover;
+            background-color: white;
+            border-radius: 2px;
+            
+            }
+           
 
             
           </style>
@@ -184,7 +192,7 @@
                 <img src="/static/css/assests/vts_logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-center">
                 <span class="highlight">VTS</span></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"><img src="/static/css/assests/navbar-toggler-icon5.png"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
@@ -213,7 +221,7 @@
                                 
                             {% endif %}
                     </a>
-                    <ul class="dropdown-menu" style="color: rgb(255, 255, 255);">
+                    <ul class="dropdown-menu" style="color: rgb(255, 255, 255); ">
                       <li><a class="dropdown-item" href="{% url 'profile' %}" style="color:rgb(0, 0, 0);" >Profile</a></li>
                       <li><a class="dropdown-item" href="{% url 'create-article' %}" style="color:rgb(1, 1, 1);">Create Articles</a></li>
                       <li><a class="dropdown-item" href="{% url 'signout' %}" style="color:rgb(0, 0, 0);">Logout</a></li>
@@ -288,74 +296,10 @@
 
 
         {% if show_footer %}
-        <footer class="py-5" style="background-color: rgb(39, 43, 91);">
-            <div class="container">
-              <div class="row">
-
-
-                 <!-- Social Media Links -->
-                 <div class="col-lg-3 col-md-6">
-                  <h4 class="text-white">VTS Enterprises Office</h4>
-                  <h5 class="text-white">India</h5>
-                  <br>
-                  <ul class="list-unstyled text-white">
-                    <p>First Floor, SRP Stratford, Rajiv Gandhi Salai, PTK nagar, OMR Road, Thiruvanmiyur, Chennai, Tamil Nadu 600041</p>
-                    <!-- Add more social media links as needed -->
-                  </ul>
-                  <address style="color: white;">
-                    Email:  <a href="mailto:talent@vtsenterprisesindia.com">talent@vtsenterprisesindia.com</a>.<br>
-                  
-                    </address>
-                </div>
-
-
-               
-                <!-- Navigation Links -->
-                <div class="col-lg-3 col-md-6">
-                  <h5 class="text-white">Quick Links</h5>
-                  <ul class="list-unstyled">
-                    <li><a href="https://www.vtsenterprisesindia.com/" class="text-white">Home</a></li>
-                    <li><a href="https://www.linkedin.com/company/vts-enterprises-india-private-limited/mycompany/" target="_blank" class="text-white">LinkedIn</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/about-us/" class="text-white">About</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/contact-us/" class="text-white">Contact Us</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/idea/" class="text-white">Idea</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/innovation/" class="text-white">Innovation</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/scale/" class="text-white">Scale</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/privacy-policy/" class="text-white">Privacy Policy</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/terms-conditions/" class="text-white">Term of Use</a></li>
-                  </ul>
-                </div>
-        
-                <div class="col-lg-3 col-md-6">
-                  <h5 class="text-white">Services</h5>
-                  <ul class="list-unstyled">
-                    <li><a href="https://www.vtsenterprisesindia.com/data-analytics-services/" target="_blank" class="text-white">Data Analytics</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/data-engineering-services/" target="_blank" class="text-white">Data Engineering</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/blockchain-development-services/" target="_blank" class="text-white">Blockchain Development</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/machine-learning-services/" target="_blank" class="text-white">Machine Learning</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/natural-language-processing-services/" target="_blank" class="text-white">Natural Launguage Proccessing</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/mobile-app-development-services/" target="_blank" class="text-white">Mobile App Development</a></li>
-                    <li><a href="https://www.vtsenterprisesindia.com/offshore-development-center/" target="_blank" class="text-white">Offshore Development</a></li>
-                    
-                  </ul>
-                </div>
-  
-  
-  
-                 
-                 
-  
-        
-                
-                
-              </div>
-            </div>
+        <footer class="py-5 footer-copyright" style="background-color: rgb(39, 43, 91);color: white;">
             <!-- Copyright Information -->
-            <div class="footer-copyright text-white">
-              &copy;2024 Copyright VTS Enterprises India. All rights reserved.
-          </div>
-            
-          </footer>
+              &copy;2024 Copyright VTS. All Rights Reserved.
+        </footer>
           {% endif %}
         
 <!-- Bootstrap core JS-->
