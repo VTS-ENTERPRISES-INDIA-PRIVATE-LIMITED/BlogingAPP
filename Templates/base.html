@@ -90,7 +90,36 @@ color: rgb(206, 214, 222);}
   border: 1pc;
 }
 
-        </style>
+.bdy{display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0%;
+  }
+
+  .carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track-container {
+    display: flex;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%;
+    display: block;
+}
+
+</style>
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -114,7 +143,7 @@ color: rgb(206, 214, 222);}
 
                   <li class="nav-item active dropdown" >
                     <a class="nav-link dropdown-toggle" href="#" role="button" style="color: rgb(255, 255, 255)" data-bs-toggle="dropdown" aria-expanded="false">
-                      Hi, {{request.user.username}}
+                      Hi, {{request.user.username}} <img style="width:30px" class="rounded-circle" src="{{request.user.profile_pic.url}}" alt="..." />
                     </a>
                     <ul class="dropdown-menu" style="color: rgb(255, 255, 255);">
                       <li><a class="dropdown-item" href="{% url 'profile' %}" style="color:rgb(0, 0, 0);" >Profile</a></li>
@@ -123,7 +152,7 @@ color: rgb(206, 214, 222);}
                     </ul>
                   </li>
 
-                  
+ 
 
 
 
