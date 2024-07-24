@@ -40,10 +40,15 @@
 
 
 <form action="" method="POST" enctype="multipart/form-data">
-    <h4>Get your profile updated!</h4>
+    
+    <div class="col-md-12">
+        <!-- Search widget-->
+        <div class="card mb-4">
+            <div class="card-header display-6 " style="background-color: rgb(39, 43, 91);color: white;">My Articles</div>
+            <br>
     {% csrf_token %}
 
-    <div class="row">
+        <div class="row">
 
         
         {% for field in form  %}
@@ -51,29 +56,33 @@
         
         {% if field.errors %}
 
-        <div class="col-md-6">
-            <div class="mb-3">
+            <div class="col-md-6">
+                <div class="mb-3">
 
                 {{field}}
                 
+                </div>
+                <small>{{field.errors}}</small>
             </div>
-            <small>{{field.errors}}</small>
-        </div>
 
         {% else %}
 
-        <div class="col-md-6">
-            <div class="mb-3">
+            <div class="col-md-6">
+                <div class="mb-3">
 
                 {{field}}
                 
+                </div>
             </div>
-        </div>
             
         {% endif %}    
         {% endfor %}
        
+        </div>
+        <button class="btn btn-primary" style="width: 100%">Update profile</button>
     </div>
+</div>
+
 
     
     
@@ -81,7 +90,7 @@
 
     
 
-    <button class="btn btn-primary" style="width: 100%">Update profile</button>
+    
 </form>
 
 {% endblock %}
