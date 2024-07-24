@@ -44,7 +44,7 @@
     <div class="col-md-12">
         <!-- Search widget-->
         <div class="card mb-4">
-            <div class="card-header display-6 " style="background-color: rgb(39, 43, 91);color: white;">Get your profile updated!</div>
+            <div class="card-header display-6 " style="background-color: rgb(39, 43, 91);color: white;">Get Your Profile Updated!</div>
             <br>
     {% csrf_token %}
 
@@ -100,14 +100,3 @@
 
 
 
-@login_required(login_url="signin")
-def update_profile(request):
-    if request.user.is_authenticated:
-        user = request.user
-        form = UpdateProfileForm(instance=user)
-        if request.method == 'POST':
-            form = UpdateProfileForm(request.POST, request.FILES, instance=user)
-            if form.is_valid():
-                form.save()
-                messages.success(request, "Profile updated successfully")
-                return redirect("profile")

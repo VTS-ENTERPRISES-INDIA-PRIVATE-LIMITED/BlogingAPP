@@ -47,7 +47,7 @@ def index(request):
             blogs = paginator.page(paginator.num_pages)
 
     categories = Category.objects.all()
-    context = {"blogs":blogs, "msg":msg, "paginator": paginator, "cats": categories, 'is_index_page': True,}
+    context = {"blogs":blogs, "msg":msg, "paginator": paginator, "cats": categories, 'is_index_page': True,  'show_footer': True,}
     return render(request, "BlogApp/index.html", context)
 
 
@@ -65,7 +65,7 @@ def detail(request, slug):
                 comment.user = request.user 
                 comment.save()
                 return redirect("detail", slug=blog.slug)
-    context = {'blog': blog, "form": form, "comments": comments, "r_blogs": related_blogs, 'is_index_page': False,}
+    context = {'blog': blog, "form": form, "comments": comments, "r_blogs": related_blogs, 'is_index_page': False,  'show_footer': True,}
     return render(request, "BlogApp/detail.html", context)
 
 
@@ -85,7 +85,7 @@ def create_article(request):
                 
                 return redirect('profile')
 
-    context={'form':form, 'is_index_page': False,}
+    context={'form':form, 'is_index_page': False,  'show_footer': True,}
     return render(request, "BlogApp/create.html", context)
 
 @login_required(login_url="signin")
@@ -100,7 +100,7 @@ def update_article(request, slug):
         blog.save()
         messages.success(request, "Article updated successfully")
         return redirect("profile")
-    context={"update":update, "form":form, 'is_index_page': False,}
+    context={"update":update, "form":form, 'is_index_page': False,  'show_footer': True,}
     return render(request, "BlogApp/create.html", context)
 
 
@@ -113,7 +113,7 @@ def delete_article(request, slug):
         blog.delete()
         messages.success(request, "Article deleted successfully")
         return redirect("profile")
-    context = {"blog": blog, "del":delete_article, "blogs": blogs, 'is_index_page': False,}
+    context = {"blog": blog, "del":delete_article, "blogs": blogs, 'is_index_page': False,  'show_footer': True,}
     return render(request, "core/profile.html", context)
     
 

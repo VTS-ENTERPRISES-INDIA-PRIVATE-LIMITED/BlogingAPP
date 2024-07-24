@@ -14,7 +14,7 @@ def signup(request):
             form.save()
             messages.success(request, "Account created successfully")
             return redirect("index")
-    context = {'form': form, 'is_index_page': False,}
+    context = {'form': form, 'is_index_page': False, 'show_footer': False,}
     return render((request), "core/signup.html", context)
 
 
@@ -31,7 +31,7 @@ def signin(request):
         else:
             messages.warning(request, 'Invalid credentials')
             return redirect('signin')
-    context ={'is_index_page': False}
+    context ={'is_index_page': False, 'show_footer': False,}
     
     return render((request), "core/login.html", context)
 
@@ -46,7 +46,7 @@ def signout(request):
 def profile(request):
     user = request.user
     blogs = Blog.objects.filter(user=user)
-    context={"user": user, "blogs": blogs, 'is_index_page': False}
+    context={"user": user, "blogs": blogs, 'is_index_page': False,  'show_footer': True,}
     return render(request, "core/profile.html", context)
 
 
@@ -63,5 +63,5 @@ def update_profile(request):
                 return redirect("profile")
         
         
-    context = {"form": form, 'is_index_page': False}
+    context = {"form": form, 'is_index_page': False,  'show_footer': True,}
     return render(request, "core/update_profile.html", context)

@@ -30,22 +30,24 @@
 </style>
 
 
-<div class="container">
+<div class="row container">
 
 
 {% if del %}
 
-<br><br>
 
-<div class="alert alert-danger" role="alert">
-  <p>Do you want to delete the article <strong>{{blog.title}}</strong> </p>
+
+<div class="alert alert-danger delete_form " role="alert">
   <form action="" method="POST">
-    {% csrf_token %}
-    <span>
+    {% csrf_token %}<p>Do you want to delete the article <strong>{{blog.title}}</strong>
       <a href="{% url 'profile' %}" class="btn btn-secondary">Cancel</a>
       <a href=""><button class="btn btn-danger">Delete</button></a>
-    </span>
-  </form>
+    </p>
+    
+      
+    
+  </form> 
+ 
 </div>
   
 {% endif %}
@@ -61,7 +63,7 @@
           </nav>
           <!-- /Breadcrumb -->
     
-          <div class="row gutters-sm">
+          <div class="row gutters-sm profile_width" >
             <div class="col-md-4 mb-3">
               <div class="card">
                 <div class="card-body">
@@ -81,7 +83,7 @@
                       <h4>{{user.first_name}} {{user.last_name}}</h4>
                       <p class="text-secondary mb-1">{{user.role}}</p>
                       <p class="text-muted font-size-sm">{{user.address}}</p>
-                      <button class="btn btn-primary">Follow</button>
+                      <a class="btn btn-info " target="__blank" href="{% url 'update_profile' %}">Edit</a>
                     </div>
                   </div>
                 </div>
@@ -138,7 +140,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank" href="{% url 'update_profile' %}">Edit</a>
+                      <br>
                     </div>
                   </div>
                 </div>
@@ -149,7 +151,6 @@
                 <!-- Search widget-->
                 <div class="card mb-4">
                     <div class="card-header display-6 " style="background-color: rgb(39, 43, 91);color: white;">My Articles</div>
-                    <br>
                     <div class="row">
 
                   

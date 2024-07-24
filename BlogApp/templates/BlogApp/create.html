@@ -45,26 +45,25 @@
             <div class="card-header display-6 " style="background-color: rgb(39, 43, 91);color: white;font-size:xx-large;">Create Your Content</div>
             <br>
             {% csrf_token %}
-    {% for field in form  %}
+               
+                {% for field in form  %}  
+                {% if field.errors %}
+                <div class="mb-4" style="margin-left: 5px;margin-right: 5px;color: #000;">
+                    <label for="">{{field.label}}</label>
+                    {{field}}
+                </div>
+                <small>{{field.errors}}</small>
 
-    
-    {% if field.errors %}
-    <div class="mb-4">
-        <label for="">{{field.label}}</label>
-        {{field}}
-    </div>
-    <small>{{field.errors}}</small>
 
-
-    {% else %}
-    <div class="mb-4">
-        <label for="">{{field.label}}</label>
-        {{field}}
-    </div>
+                {% else %}
+                <div class="mb-4" style="margin-left: 5px;margin-right: 5px;color: #000;">
+                    <label for="">{{field.label}}</label>
+                    {{field}}
+                </div>
+                    
+                {% endif %}
         
-    {% endif %}
-        
-
+            
     
         
     {% endfor %}
