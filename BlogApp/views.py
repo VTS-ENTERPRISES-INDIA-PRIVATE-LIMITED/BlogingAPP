@@ -10,45 +10,51 @@ from django.template.loader import get_template
 from django.template import TemplateDoesNotExist
 from django.http import HttpResponse
 
-
-
-# Create your views here.
 def index(request):
     keyword = request.GET.get("search")
-    msg=None
+    msg = None
     paginator = None
+
     try:
         template = get_template('BlogApp/index.html')
     except TemplateDoesNotExist:
         return HttpResponse("Template not found.")
+    
     if keyword:
-        blogs = Blog.objects.filter(Q(title__icontains=keyword) | Q(body__icontains=keyword) | 
-                                    Q(category__title__icontains=keyword))
+        blogs = Blog.objects.filter(
+            Q(title__icontains=keyword) | 
+            Q(body__icontains=keyword) | 
+            Q(category__title__icontains=keyword)
+        ).distinct().select_related('category').prefetch_related('comments')
         
         if blogs.exists():
             paginator = Paginator(blogs, 4)
             blogs = paginator.page(1)
-        
         else:
             msg = "There is no article with the keyword"
-            
     else:
-        blogs = Blog.objects.filter(featured=False)
+        blogs = Blog.objects.filter(featured=False).select_related('category').prefetch_related('comments')
         paginator = Paginator(blogs, 4)
         page = request.GET.get("page")
         
         try:
             blogs = paginator.page(page)
-            
         except PageNotAnInteger:
             blogs = paginator.page(1)
-        
         except EmptyPage:
             blogs = paginator.page(paginator.num_pages)
 
     categories = Category.objects.all()
-    context = {"blogs":blogs, "msg":msg, "paginator": paginator, "cats": categories, 'is_index_page': True,  'show_footer': True,}
+    context = {
+        "blogs": blogs, 
+        "msg": msg, 
+        "paginator": paginator, 
+        "cats": categories, 
+        'is_index_page': True,  
+        'show_footer': True,
+    }
     return render(request, "BlogApp/index.html", context)
+
 
 
 def detail(request, slug):

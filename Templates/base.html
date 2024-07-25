@@ -124,17 +124,26 @@
                 width: 100%;
                 display: block;
             }
+            @media only screen and (min-width: 1200px){
+            .search-form{
+              display: flex;
+              width:66%;
+              
+            }
+          }
 
+          @media only screen and (max-width: 900px){
+            .search-form{
+              display: flex;
+              width:100%;
+              
+            }
+          }
 
             @media only screen and (min-width: 1000px){
             .bdy{height: 100vh;}
             }
-            .search-form{
-              justify-content: center;
-              align-items: center;
-              display: flex;
-              margin-right: 2rem;
-            }
+           
 
             .footer-copyright {
                 margin-top: auto; /* Push the copyright to the bottom */
@@ -207,14 +216,7 @@
                   
               
                   {% if request.user.is_authenticated %}
-                  {% if is_index_page %}
-                  <form action="" class="search-form">
-                    <div class="input-group">
-                        <input class="form-control" name="search" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                        
-                    </div>
-                </form>
-                {% endif %}
+                 
 
                   <li class="nav-item active dropdown" >
                     <a class="nav-link dropdown-toggle" href="#" role="button" style="color: rgb(255, 255, 255)" data-bs-toggle="dropdown" aria-expanded="false">
@@ -238,14 +240,7 @@
 
 
                   {% else %}
-                  {% if is_index_page %}
-                  <form action="" class="search-form">
-                    <div class="input-group">
-                        <input class="form-control" name="search" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                        
-                    </div>
-                </form>
-                {% endif %}
+                  
                   
                   <li class="nav-item me-3 navlog">
                     <a href="https://blog-website-g849.onrender.com/admin">

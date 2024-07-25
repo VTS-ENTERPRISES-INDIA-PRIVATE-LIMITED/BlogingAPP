@@ -66,7 +66,8 @@
         
     {% endfor %}
 
-    <button class="btn btn-primary" style="width:100%">Create account</button>
+    <a href="{% url 'signin' %}" class="btn btn-primary" style="width:100%">Create account</button></a>
+
     <p>Already have an account? <a href="{% url 'signin' %}">Login</a></p>
   
 </form>
