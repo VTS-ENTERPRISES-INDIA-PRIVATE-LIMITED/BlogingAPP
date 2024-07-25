@@ -223,7 +223,7 @@
                 <ul class="navbar-nav">
                  
 
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 21" aria-label="Render" width="84" height="21" class="render-logo-fill fill-black inline-block md:hidden"></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 21" aria-label="Render" width="84" height="21" class="render-logo-fill fill-white inline-block md:hidden"></svg>
                   
               
                   {% if request.user.is_authenticated %}
@@ -253,7 +253,7 @@
                   {% else %}
                   
                   
-                  <li class="nav-item me-3 navlog">
+                  <li class="nav-item me-3">
                     <a href="https://blog-website-g849.onrender.com/admin">
                     <button type="button" class="btn btn-outline-light">
                        Admin
@@ -261,7 +261,7 @@
                 </a>
                   </li>
 
-                  <li class="nav-item me-3 navlog">
+                  <li class="nav-item me-3">
                     <a href="{% url 'signup' %}">
                     <button type="button" class="btn btn-outline-light">
                        SignUp
@@ -270,7 +270,7 @@
                   </li>
 
 
-                  <li class="nav-item me-3 navlog">
+                  <li class="nav-item me-3">
                     <a href="{% url 'signin' %}">
                     <button type="button" class="btn btn-outline-light">
                        Login
