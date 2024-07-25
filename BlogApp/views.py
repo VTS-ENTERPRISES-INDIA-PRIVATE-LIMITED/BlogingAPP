@@ -45,6 +45,8 @@ def index(request):
             blogs = paginator.page(paginator.num_pages)
 
     categories = Category.objects.all()
+
+    
     context = {
         "blogs": blogs, 
         "msg": msg, 
