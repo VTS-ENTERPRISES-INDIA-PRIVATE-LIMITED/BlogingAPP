@@ -74,7 +74,9 @@
                 }
 
                 .navlog{
-                  margin-top: 1rem;
+                  justify-content: center;
+                  align-content: center;
+                  align-items: center;
                 }
   
     
@@ -210,7 +212,7 @@
     </head>
     <body>
         <!-- Responsive navbar-->
-        <nav class="navbar mynav navbar-expand-lg navbar1" style="background-color:rgb(39, 43, 91);">
+        <nav class="navbar mynav navbar-expand-lg navbar1 navlog" style="background-color:rgb(39, 43, 91);align-items: center;">
             <div class="container">
               
               <a class="navbar-brand me-8 p1" href="{% url 'index' %}" style="color: rgb(255, 255, 255);">
@@ -253,7 +255,7 @@
                   {% else %}
                   
                   
-                  <li class="nav-item me-3">
+                  <li class="nav-item me-3 navlog">
                     <a href="https://blog-website-g849.onrender.com/admin">
                     <button type="button" class="btn btn-outline-light">
                        Admin
@@ -261,7 +263,7 @@
                 </a>
                   </li>
 
-                  <li class="nav-item me-3">
+                  <li class="nav-item me-3 navlog">
                     <a href="{% url 'signup' %}">
                     <button type="button" class="btn btn-outline-light">
                        SignUp
@@ -270,7 +272,7 @@
                   </li>
 
 
-                  <li class="nav-item me-3">
+                  <li class="nav-item me-3 navlog">
                     <a href="{% url 'signin' %}">
                     <button type="button" class="btn btn-outline-light">
                        Login
