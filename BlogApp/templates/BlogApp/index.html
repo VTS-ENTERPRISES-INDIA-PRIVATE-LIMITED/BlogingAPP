@@ -12,9 +12,7 @@
       <div class="carousel-item active carousel-slide">
         <a href="#"><img src="/static/css/assests/1st_slide.png" class="d-block w-100 outset" alt="..." ></a>
       </div>
-       
-       
-       
+  
       <div class="carousel-item carousel-slide">
         <a href="#"><img src="/static/css/assests/2nd_slide.png" class="d-block w-100 outset" alt="..." ></a>
       </div>
@@ -41,7 +39,7 @@
 <!-- Page content-->
 
 <div class="container">
-    {% if is_index_page %}
+    
     <form action="#results" class="search-form">
       <div class="input-group">
           <input class="form-control" name="search" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
@@ -49,7 +47,7 @@
       </div>
       <a id="results"></a>
   </form>
-  {% endif %}
+ 
 </div>
 <br>
 
@@ -97,15 +95,15 @@
 
                     
                 
-                    <nav aria-label="Pagination">
+                    <nav aria-label="Pagination" action="#results">
                         <hr class="my-0" />
                         <ul class="pagination justify-content-center my-4">
-                            {% comment %} <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
-                            <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li> {% endcomment %}
+                            {% comment %} <li class="page-item disabled"><a class="page-link" id="results" tabindex="-1" aria-disabled="true">Newer</a></li>
+                            <li class="page-item active" aria-current="page"><a class="page-link" id="results">1</a></li> {% endcomment %}
 
                             
                             {% if blogs.has_previous %}
-                            <li class="page-item"><a class="page-link" href="?page={{blogs.previous_page_number}}" 
+                            <li class="page-item"><a class="page-link" href="?page={{blogs.previous_page_number}}" id="results"
                                 tabindex="-1" aria-disabled="true">Previous</a></li>
                                 
                             {% endif %}
@@ -116,10 +114,10 @@
                             
                             {% if page == blogs.number %}
 
-                            <li class="page-item active" aria-current="page"><a class="page-link" href="?page={{page}}">{{page}}</a></li>
+                            <li class="page-item active" aria-current="page"><a class="page-link" href="?page={{page}}" id="results" >{{page}}</a></li>
 
                             {% else %}
-                            <li class="page-item"><a class="page-link" href="?page={{page}}">{{page}}</a></li>
+                            <li class="page-item"><a class="page-link" href="?page={{page}}" id="results">{{page}}</a></li>
                                 
                             {% endif %}
                                 
@@ -130,15 +128,16 @@
 
                             {% if blogs.has_next %}
                             <li class="page-item"><a class="page-link" href="?page={{blogs.next_page_number}}" 
-                                tabindex="-1" aria-disabled="true">Next</a></li>
+                                tabindex="-1" aria-disabled="true" id="results">Next</a></li>
                                 
                             {% endif %}
                                 
                                 
                             
                         
-                            {% comment %} <li class="page-item"><a class="page-link" href="#!">Older</a></li> {% endcomment %}
+                            {% comment %} <li class="page-item"><a class="page-link" href="#!" id="results">Older</a></li> {% endcomment %}
                         </ul>
+                        <a id="results"></a>
                     </nav>
                 </div>
         <!-- Side widgets-->
