@@ -32,14 +32,15 @@ ALLOWED_HOSTS = ["blog-website-g849.onrender.com", '127.0.0.1','localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'core',
+    'BlogApp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
-    'BlogApp'
+    
 
 ]
 
@@ -58,16 +59,20 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'Blog_Website.urls'
 
 TEMPLATES = [
-    {
+        {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'Templates')],
-        'APP_DIRS': True,
+        
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+            ],
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
             ],
         },
     },
@@ -137,3 +142,11 @@ AUTH_USER_MODEL = 'core.CustomUser'
 SESSION_COOKIE_AGE = 3600
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 SESSION_SAVE_EVERY_REQUEST = False
+
+#EMAIL
+EMAIL_BACKEND ="django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_POST = 587
+EMAIL_USE_TLS =True
+EMAIL_HOST_USER = "poojakn1818@gmail.com"
+EMAIL_HOST_PASSWORD = "dolb opbl iggm vult"
