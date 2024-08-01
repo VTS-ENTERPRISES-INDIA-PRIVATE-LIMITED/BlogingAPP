@@ -7,17 +7,17 @@
  
 
  <div id="carouselExampleAutoplaying" class="carousel bdy" data-bs-ride="carousel">
-    <div class="carousel-inner carousel-track-container carousel-track">
+    <div class="carousel-inner carousel-track-container carousel-track" style="width: auto;height: auto;border: none;">
         
-      <div class="carousel-item active carousel-slide">
+      <div class="carousel-item active carousel-slide w3-container w3-center w3-animate-zoom" style="border: 0ch;width: 100%;height: 100%;padding: 0px;margin: 0%;">
         <a href="#"><img src="/static/css/assests/1st_slide.png" class="d-block w-100 outset" alt="..." ></a>
       </div>
   
-      <div class="carousel-item carousel-slide">
+      <div class="carousel-item carousel-slide w3-container w3-center w3-animate-zoom" style="border: 0ch;width: 100%;height: 100%;padding: 0px;margin: 0%;">
         <a href="#"><img src="/static/css/assests/2nd_slide.png" class="d-block w-100 outset" alt="..." ></a>
       </div>
       
-      <div class="carousel-item carousel-slide">
+      <div class="carousel-item carousel-slide w3-container w3-center w3-animate-zoom" style="border: 0ch;width: 100%;height: 100%;padding: 0px;margin: 0%;">
         <a href="#"><img src="/static/css/assests/3rd_slide.png" class="d-block w-100 outset" alt="..." ></a>
       </div>
        
@@ -37,7 +37,7 @@
 
 
 <!-- Page content-->
-
+<body style="background-color: rgb(235, 236, 246);">
 <div class="container">
     
     <form action="#results" class="search-form">
@@ -73,9 +73,9 @@
                         
                         {% for blog in blogs  %}
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-6" >
                             <!-- Blog post-->
-                            <div class="card mb-4">
+                            <div class="card mb-4 blog-post ">
                                 <a href="{% url 'detail' blog.slug %}"><img class="card-img-top" src="{{blog.thumbnail.url}}" alt="..." width="auto" height="auto" /></a>
                                 <div class="card-body">
                                     <div class="small text-muted">{{blog.created}}</div>
@@ -97,7 +97,7 @@
                 
                     <nav aria-label="Pagination" action="#results">
                         <hr class="my-0" />
-                        <ul class="pagination justify-content-center my-4">
+                        <ul class="pagination justify-content-center my-4 toggler-hover">
                             {% comment %} <li class="page-item disabled"><a class="page-link" id="results" tabindex="-1" aria-disabled="true">Newer</a></li>
                             <li class="page-item active" aria-current="page"><a class="page-link" id="results">1</a></li> {% endcomment %}
 
@@ -173,5 +173,5 @@
         </div>
     </div>
 </div>
-
+</body>
 {% endblock content %}

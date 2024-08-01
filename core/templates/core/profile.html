@@ -27,9 +27,17 @@
     font-size: 20px !important;
     margin-right: 10px;
   }
+
+  @media (min-width:991.33px){
+        .blog-height{
+            height: 180px
+            }
+        }
+    
+    
 </style>
 
-
+<body style="background-color: rgb(235, 236, 246)";>
 <div class="row container">
 
 
@@ -157,7 +165,7 @@
                       <div class="col-md-6">
                         
                         <div class="card mb-4">
-                          <a href="#!"><img class="card-img-top" src="{{blog.thumbnail.url}}" alt="..." /></a>
+                          <a href="#!"><img class="card-img-top blog-height" src="{{blog.thumbnail.url}}" alt="..." /></a>
                           <div class="card-body">
                               <div class="small text-muted">{{blog.created}}</div>
                               <h2 class="card-title h4">{{blog.title}}</h2>
@@ -193,5 +201,5 @@
 
         </div>
     </div>
-
+  </body>
 {% endblock content %}

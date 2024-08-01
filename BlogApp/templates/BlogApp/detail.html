@@ -30,6 +30,8 @@
 </style>
 
 <!-- Page content-->
+<body style="background-color: rgb(235, 236, 246)";>
+
 <div class="container mt-5 article">
     <div class="row">
         <div class="border">
@@ -152,7 +154,7 @@
 
                 <div class="col-lg-4">
                     <!-- Blog post-->
-                    <div class="card mb-4">
+                    <div class="card mb-4 blog-post">
                         <a href="{% url 'detail' blog.slug %}"><img class="card-img-top blog-height" src="{{blog.thumbnail.url}}" alt="..."  /></a>
                         <div class="card-body">
                             <div class="small text-muted">{{blog.created}}</div>
@@ -171,5 +173,5 @@
     
     </div>
 </div>
-
+</body>
 {% endblock content %}

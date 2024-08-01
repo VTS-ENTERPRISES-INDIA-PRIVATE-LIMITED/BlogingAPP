@@ -10,6 +10,7 @@
         <meta name="author" content="" />
         <title>VTS - Tech</title>
         <link rel="icon" type="image/x-icon" href="/static/css/assests/vts_logo.png">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
         <script src="{% static 'article/js/scripts.js' %}"></script>
         <!-- Favicon-->
@@ -226,8 +227,45 @@
                   }
                 }
                 
-           
+                .blog-post {
+                  position: relative;
+                  overflow: hidden;
+                }
 
+                .blog-post .overlay {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  background: rgba(0, 0, 0, 0.5);
+                  color: white;
+                  opacity: 0;
+                  transition: opacity 0.3s ease;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+
+                .blog-post:hover .overlay {
+                  opacity: 1;
+                }
+
+                .blog-post {
+                  transition: box-shadow 0.3s ease, transform 0.3s ease;
+                }
+
+                .blog-post:hover {
+                  box-shadow: 5px 8px 20px rgba(0, 0, 0, 0.2);
+                  transform: scale(1.05);
+                }
+
+                .toggler-hover{
+                  transition: transform 0.3s ease;
+                }
+                .toggler-hover:hover{
+                  transform: scale(1.05);
+                }
             
           </style>
     </head>
@@ -237,7 +275,7 @@
             <div class="container">
               
               <a class="navbar-brand me-8 p1" href="{% url 'index' %}" style="color: rgb(255, 255, 255);">
-                <img src="/static/css/assests/vts_logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-center">
+                <img src="/static/css/assests/vts_logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-center toggler-hover">
                 <span class="highlight">VTS</span></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -253,7 +291,7 @@
                  
 
                   <li class="nav-item active dropdown" >
-                    <a class="nav-link dropdown-toggle" href="#" role="button" style="color: rgb(255, 255, 255)" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle toggler-hover" href="#" role="button" style="color: rgb(255, 255, 255);" data-bs-toggle="dropdown" aria-expanded="false">
                       Hi, {{request.user.username}} 
                       {% if user.profile_pic and user.profile_pic.url %}
                             <img style="width:30px" class="rounded-circle" src="{{request.user.profile_pic.url}}" alt="..." />
@@ -263,9 +301,9 @@
                             {% endif %}
                     </a>
                     <ul class="dropdown-menu" style="color: rgb(255, 255, 255); ">
-                      <li><a class="dropdown-item" href="{% url 'profile' %}" style="color:rgb(39, 43, 91);" ><span  class="highlight">Profile</span></a></li>
-                      <li><a class="dropdown-item" href="{% url 'create-article' %}" style="color:rgb(39, 43, 91);"><span  class="highlight">Create Articles</span></a></li>
-                      <li><a class="dropdown-item" href="{% url 'signout' %}" style="color:rgb(39, 43, 91);"><span  class="highlight">Logout</span></a></li>
+                      <li><a class="dropdown-item" href="{% url 'profile' %}" style="color:rgb(39, 43, 91);" >Profile</a></li>
+                      <li><a class="dropdown-item" href="{% url 'create-article' %}" style="color:rgb(39, 43, 91);">Create Articles</a></li>
+                      <li><a class="dropdown-item" href="{% url 'signout' %}" style="color:rgb(39, 43, 91);">Logout</a></li>
                     </ul>
                   </li>
 
@@ -278,13 +316,13 @@
                   
                   <li class="nav-item me-3 navlog">
                     <a href="https://blog-website-g849.onrender.com/admin">
-                    <button type="button" class="btn btn-outline-light">
+                    <button type="button" class="btn btn-outline-light toggler-hover">
                        Admin
                     </button>
                 </a>
                   </li>
 
-                  <li class="nav-item me-3 navlog">
+                  <li class="nav-item me-3 navlog toggler-hover">
                     <a href="{% url 'signup' %}">
                     <button type="button" class="btn btn-outline-light">
                        SignUp
@@ -293,7 +331,7 @@
                   </li>
 
 
-                  <li class="nav-item me-3 navlog">
+                  <li class="nav-item me-3 navlog toggler-hover">
                     <a href="{% url 'signin' %}">
                     <button type="button" class="btn btn-outline-light">
                        Login
@@ -338,7 +376,7 @@
 
 
         {% if show_footer %}
-        <footer class="py-5 footer-copyright gradiant-image" style="color: white;">
+        <footer class="py-5 footer-copyright gradiant-image" style="color: white;width: 100vw;">
             <!-- Copyright Information -->
               &copy;2024 Copyright VTS. All Rights Reserved.
         </footer>
