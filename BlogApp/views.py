@@ -12,6 +12,7 @@ from django.http import HttpResponse
 
 
 
+
 # Create your views here.
 def index(request):
     keyword = request.GET.get("search")
@@ -33,7 +34,7 @@ def index(request):
             msg = "There is no article with the keyword"
             
     else:
-        blogs = Blog.objects.filter(featured=False)
+        blogs = Blog.objects.filter(status='published')
         paginator = Paginator(blogs, 4)
         page = request.GET.get("page")
         
@@ -73,22 +74,34 @@ def detail(request, slug):
 
 @login_required(login_url="signin")
 def create_article(request):
-    if request.user.is_authenticated:
-        user =request.user
-        form =CreateBlogForm()
-        if request.method =='POST':
-            form = CreateBlogForm(request.POST, request.FILES)
-            if form.is_valid():
-                Blog = form.save(commit=False)
-                Blog.slug =slugify(request.POST["title"])
-                Blog.user = request.user
-                Blog.save()
-                messages.success(request,"Article created successfully!")
-                
-                return redirect('profile')
+    form = CreateBlogForm()
+    if request.method == 'POST':
+        form = CreateBlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            blog = form.save(commit=False)
+            if 'status-draft' in request.POST:
+                blog.status = 'draft'
+            elif 'publish' in request.POST:
+                blog.status = 'published'
+            blog.slug = slugify(request.POST["title"])
+            blog.author = request.user  # Ensure this matches your model's field
+            blog.save()
+            messages.success(request, "Article created successfully!")
+            return redirect('profile')
 
-    context={'form':form, 'is_index_page': False,  'show_footer': True,}
+    context = {'form': form, 'is_index_page': False, 'show_footer': True}
     return render(request, "BlogApp/create.html", context)
+
+
+@login_required(login_url="signin")
+def drafts(request):
+    user = request.user
+    blogs = Blog.objects.filter(user=user, status='draft')  # Correct status value
+    print(f"User: {user}")
+    print(f"Draft Blogs: {blogs}")
+    print('hello')
+    context = {"user": user, "blogs": blogs, 'is_index_page': False, 'show_footer': True}
+    return render(request, "BlogApp/drafts.html", context)
 
 @login_required(login_url="signin")
 def update_article(request, slug):

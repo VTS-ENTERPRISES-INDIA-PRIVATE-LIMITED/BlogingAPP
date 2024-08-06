@@ -90,6 +90,7 @@
                       <p class="text-secondary mb-1">{{user.role}}</p>
                       <p class="text-muted font-size-sm">{{user.address}}</p>
                       <a class="btn btn-info " target="__blank" href="{% url 'update_profile' %}">Edit</a>
+                      <a class="btn btn-info " target="__blank" href="{% url 'drafts' %}">Drafts</a>
                     </div>
                   </div>
                 </div>
@@ -114,6 +115,15 @@
                     </div>
                     <div class="col-sm-9 text-secondary">
                       {{user.email}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">EMP_ID</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{user.emp_id}}
                     </div>
                   </div>
                   <hr>
@@ -160,7 +170,7 @@
                     <div class="row">
 
                   
-                      {% for blog in blogs  %}
+                      {% for blog in p_blogs  %}
     
                       <div class="col-md-6">
                         

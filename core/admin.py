@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import CustomUser
+from .models import CustomUser, EmpID
 # Register your models here.
 
 class CustomUserAdmin(UserAdmin):
@@ -17,5 +17,6 @@ class CustomUserAdmin(UserAdmin):
     )
     
 admin.site.register(CustomUser)
+admin.site.register(EmpID)
 
 

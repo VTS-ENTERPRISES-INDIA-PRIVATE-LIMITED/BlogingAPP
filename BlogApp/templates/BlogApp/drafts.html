@@ -1,0 +1,27 @@
+<!-- core/drafts.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card mb-4">
+    <div class="card-header display-6" style="background-color: rgb(39, 43, 91); color: white;">My Draft Articles</div>
+    <div class="row">
+        {% for blog in blogs %}
+        <div class="col-md-3">
+            <div class="card mb-4">
+                <a href="#!"><img class="card-img-top blog-height" src="{{ blog.thumbnail.url }}" alt="..." style="width: 100%;height: 200px;"/></a>
+                <div class="card-body">
+                    <div class="small text-muted">{{ blog.created }}</div>
+                    <h2 class="card-title h4">{{ blog.title }}</h2>
+                    <p class="card-text">{{ blog.body|safe|truncatechars:"100" }}</p>
+                    <a class="btn btn-primary" href="{% url 'detail' slug=blog.slug %}">Read more →</a>
+                    <span style="float: right" class="actions">
+                        <a href="{% url 'update-article' blog.slug %}"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="{% url 'delete-article' blog.slug %}"><i class="fa-solid fa-trash-can"></i></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

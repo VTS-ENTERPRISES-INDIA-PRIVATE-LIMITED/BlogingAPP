@@ -1,9 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
  <!-- Page header with logo and tagline-->
-
  
 
  <div id="carouselExampleAutoplaying" class="carousel bdy" data-bs-ride="carousel">
@@ -82,6 +82,7 @@
                                     <h2 class="card-title h4">{{blog.title}}</h2>
                                     <p class="card-text">{{blog.body|truncatechars:"100"}}</p>
                                     <a class="btn btn-primary" href="{% url 'detail' blog.slug %}">Read more →</a>
+                                    
                                 </div>
                             </div>
                         </div>

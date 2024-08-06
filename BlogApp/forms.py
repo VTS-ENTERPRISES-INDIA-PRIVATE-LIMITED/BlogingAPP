@@ -6,11 +6,11 @@ class CreateBlogForm(forms.ModelForm):
     title = forms.CharField(widget=forms.TextInput(attrs={"class": "form-control", "placeholder":"Enter title"}))
     body = forms.CharField(widget=forms.Textarea(attrs={"class": "form-control", "placeholder":"Enter body"}))
     thumbnail = forms.ImageField(widget=forms.FileInput(attrs={"class": "form-control", "placeholder":"Add image"}))
-    # category = forms.CharField(widget=forms.TextInput(attrs={"class": "form-select", "placeholder":"Enter title"}))
     category = forms.ModelChoiceField(queryset=Category.objects.all(), widget=forms.Select(attrs={"class": "form-select", "placeholder": "Select category"}))
+    status = forms.ChoiceField(choices=[('draft', 'Draft'), ('published', 'Published')], widget=forms.Select(attrs={"class": "form-select", "placeholder": "Select status" }))
     class Meta:
         model=Blog 
-        fields = ["title", "body", "thumbnail", "category"]
+        fields = ["title", "body", "thumbnail", "category","status"]
         
 
 class CommentForm(forms.ModelForm):
